@@ -1,0 +1,77 @@
+package Meia;
+
+import java.util.Scanner;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Scanner entrada = new Scanner(System.in);
+
+		int soma = 0, min = 0, menor = 0, maior = 0;
+		int i = 0, maiorValor = 0, linha = 0, primeiroValor = 0;
+		
+		int[] tmenor = new int[20];
+		Random.randInt(0, 10);
+		
+		System.out.println("Maximo de dados: ");
+		
+		int max = entrada.nextInt();
+		
+		String[] numS = new String[max+1]; 
+		int[] num = new int[max+1];
+		
+		for(i = 0; i<max; i++) 
+		{
+			num[i] = Random.randInt(0, 50);
+			numS[i] = Integer.toString(num[i]);
+			System.out.printf("%s ", numS[i]);
+			//System.out.println(" ");
+			//System.out.printf("\n%d ", num[i]);
+			
+		}
+		System.out.printf("\n[");
+		for(i = 0; i<max; i++) 
+		{
+			System.out.printf("%d ", num[i]);
+		}
+		System.out.printf("]");
+		
+		menor = maior;
+		//Lembra--------------
+		while(num[primeiroValor] != num[max]){
+			linha++;
+			
+			for(i=0; i<max; i++){
+
+				if(num[i] > maior) maior = num[i];
+			}
+			
+			if(maiorValor > max) {
+				min = maiorValor - max;				
+				maiorValor = maiorValor-min;
+			}	
+			
+			for(i=primeiroValor; i<maiorValor; i++){
+				System.out.printf("%d ", num[i]);
+				if(num[i] < menor) menor = num[i];
+			}
+			tmenor[linha] = menor; 
+			soma = soma + menor;
+			menor = maior;
+			System.out.printf("\n");
+			primeiroValor = i;
+			maiorValor=linha+i;
+			
+		}
+		System.out.printf("\nMenor: ");
+		for(i=2; i<linha+1; i++){
+			System.out.printf("%d ", tmenor[i]);
+
+		}
+		System.out.printf("\nSoma: %d", soma);
+		
+	}
+	
+}
