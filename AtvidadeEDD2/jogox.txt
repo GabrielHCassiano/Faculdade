@@ -1,0 +1,58 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <locale.h>
+#include <time.h>
+
+int main(){
+	
+	setlocale(LC_ALL, "Portuguese");
+	srand (time(NULL));
+
+	int **matriz;
+	int num, l ,c, tam, escolha;
+
+
+	printf("Escolha: (1)Fácil(9-Números) --- (2)Médio(25-Números) --- (3)Difícil(100-Números)\n");
+	scanf("%d", &escolha);
+	
+	if(escolha == 1){
+		tam = 3;
+	}else if(escolha == 2)
+		tam = 5;
+	else if(escolha ==3)
+		tam = 10;
+	
+	matriz = (int**) malloc(sizeof(int*)*tam);
+	
+	
+	for (l = 0; l < tam; l++){
+		matriz[l] = (int*) malloc(sizeof(int*)*tam);
+		for(c = 0; c < tam; c++)
+			matriz[l][c] = rand() % (tam * tam);
+	}
+	
+	printf("\nEscolha uma linha de 1 a %d: ", tam);
+	scanf("%d", &l);
+	printf("\nEscolha uma coluna de 1 a %d: ", tam);
+	scanf("%d", &c);
+	printf("\nEscolha um número de 1 a %d: ", tam*tam);
+	scanf("%d", &num);
+		
+	while (matriz[l-1][c-1] != num)
+	{
+		printf("Errou!");
+		printf("\nEscolha o número: ");
+		scanf("%d", &num);
+	}
+		printf("Ganhou!");
+		
+	if (matriz!=NULL){
+		for (l=0 ; l<tam ; l++){
+			if (matriz[l] != NULL)
+				free(matriz[l]);
+		}
+				free(matriz);
+	}
+	
+}
