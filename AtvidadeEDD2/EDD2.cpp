@@ -71,6 +71,28 @@ int remover(t_no * arvore, int valor)
 	}
 }
 
+t_no * rotacionarEsquerda(t_no * arvore)
+{
+	t_no * p_no = arvore;
+	t_no * esquerda = p_no->esquerda;
+		
+	p_no->esquerda = esquerda->direita;
+	esquerda->direita = p_no;
+	
+	return esquerda;
+}
+
+t_no * rotacionarDireita(t_no * arvore)
+{
+	t_no * p_no = arvore;
+	t_no * direita = p_no->direita;
+		
+	p_no->direita = direita->esquerda;
+	direita->esquerda = p_no;
+	
+	return direita;
+}
+
 int main()
 {
 	t_no * arvore = NULL;
