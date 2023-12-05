@@ -3,6 +3,8 @@
 #include <string.h>
 #include <windows.h>
 
+//Creditos: willianrschuck || https://gist.github.com/willianrschuck/db43f89dbbbe9f887f805e3def11207f
+
 typedef struct no {
 	int chave;
 	int nivel;
